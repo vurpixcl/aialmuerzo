@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Leadership Lunch | Vurpix</title>
   <style>
     :root {
-      --vurpix-primary: #111827;
-      --vurpix-primary-2: #0f172a;
+      --vurpix-blue-dark: #0b1f3a;
+      --vurpix-blue: #123d73;
+      --vurpix-blue-2: #1f5ea8;
+      --vurpix-blue-soft: #eaf2fb;
       --vurpix-text: #1f2937;
-      --vurpix-muted: #6b7280;
-      --vurpix-bg: #f8fafc;
+      --vurpix-muted: #667085;
+      --vurpix-bg: #f6f9fc;
       --vurpix-surface: #ffffff;
-      --vurpix-border: #e5e7eb;
-      --vurpix-accent: #2563eb;
-      --vurpix-accent-soft: rgba(37, 99, 235, 0.12);
+      --vurpix-border: #d9e4f2;
+      --vurpix-button: #1f5ea8;
+      --vurpix-button-hover: #184c88;
+      --vurpix-shadow: 0 14px 38px rgba(18, 61, 115, 0.14);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: var(--vurpix-bg);
+      background: linear-gradient(180deg, #eef4fa 0%, #f8fbfe 100%);
       color: var(--vurpix-text);
       line-height: 1.5;
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--vurpix-primary-2), var(--vurpix-primary));
+      background: linear-gradient(135deg, var(--vurpix-blue-dark), var(--vurpix-blue), var(--vurpix-blue-2));
       color: white;
-      padding: 76px 20px 64px;
+      padding: 76px 20px 70px;
       text-align: center;
     }
 
@@ -45,30 +44,32 @@
       margin: 0 auto;
     }
 
+    .brand {
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 14px;
+      font-weight: bold;
+    }
+
     .eyebrow {
       display: inline-block;
-      margin-bottom: 18px;
-      padding: 8px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      margin-bottom: 20px;
+      padding: 9px 16px;
+      border: 1px solid rgba(255,255,255,0.28);
       border-radius: 999px;
       font-size: 12px;
       letter-spacing: 1.4px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.86);
-    }
-
-    .brand {
-      font-size: 14px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.72);
-      margin-bottom: 14px;
+      color: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.08);
     }
 
     .hero h1 {
       margin: 0 0 16px;
-      font-size: 46px;
-      line-height: 1.1;
+      font-size: 48px;
+      line-height: 1.08;
       font-weight: 700;
     }
 
@@ -77,51 +78,47 @@
       margin: 0 auto;
       font-size: 18px;
       line-height: 1.65;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255,255,255,0.92);
     }
 
     .hero-cta {
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .hero-cta a {
       display: inline-block;
-      padding: 14px 22px;
+      padding: 14px 24px;
       background: white;
-      color: var(--vurpix-primary);
+      color: var(--vurpix-blue);
       text-decoration: none;
       border-radius: 10px;
       font-weight: 700;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .hero-cta a:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
     }
 
     .container {
       max-width: 1040px;
-      margin: -26px auto 0;
+      margin: -30px auto 0;
       padding: 0 20px 56px;
     }
 
     .card {
       background: var(--vurpix-surface);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 34px;
-      box-shadow: 0 12px 34px rgba(15, 23, 42, 0.10);
+      box-shadow: var(--vurpix-shadow);
+      border: 1px solid #edf2f7;
     }
 
     .details {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
     .box {
-      background: #f8fafc;
+      background: linear-gradient(180deg, #f8fbff 0%, #f1f7fd 100%);
       border: 1px solid var(--vurpix-border);
       border-radius: 14px;
       padding: 18px;
@@ -133,7 +130,7 @@
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      color: var(--vurpix-muted);
+      color: var(--vurpix-blue);
     }
 
     .section {
@@ -143,12 +140,12 @@
     .section h2,
     .section h3 {
       margin: 0 0 10px;
-      color: var(--vurpix-primary);
       line-height: 1.2;
+      color: var(--vurpix-blue);
     }
 
     .section h2 {
-      font-size: 30px;
+      font-size: 31px;
     }
 
     .section h3 {
@@ -157,7 +154,6 @@
 
     .section p {
       margin: 0 0 12px;
-      color: var(--vurpix-text);
     }
 
     .muted {
@@ -172,8 +168,8 @@
     }
 
     .topic {
+      background: var(--vurpix-blue-soft);
       border: 1px solid var(--vurpix-border);
-      background: #fbfdff;
       border-radius: 14px;
       padding: 16px;
     }
@@ -181,18 +177,18 @@
     .topic-title {
       font-weight: 700;
       margin-bottom: 6px;
-      color: var(--vurpix-primary);
+      color: var(--vurpix-blue-dark);
     }
 
     .topic p {
       margin: 0;
-      color: var(--vurpix-muted);
+      color: #4b5563;
       font-size: 15px;
     }
 
     .divider {
       height: 1px;
-      background: var(--vurpix-border);
+      background: linear-gradient(90deg, transparent, var(--vurpix-border), transparent);
       margin: 8px 0 30px;
     }
 
@@ -215,7 +211,7 @@
       width: 100%;
       padding: 14px;
       border-radius: 10px;
-      border: 1px solid #d1d5db;
+      border: 1px solid #cfd8e3;
       font-size: 16px;
       font-family: Arial, sans-serif;
       background: white;
@@ -231,22 +227,20 @@
     textarea:focus,
     select:focus {
       outline: none;
-      border-color: var(--vurpix-accent);
-      box-shadow: 0 0 0 3px var(--vurpix-accent-soft);
+      border-color: var(--vurpix-blue-2);
+      box-shadow: 0 0 0 3px rgba(31, 94, 168, 0.14);
     }
 
     button {
-      background: var(--vurpix-primary);
+      background: var(--vurpix-button);
       color: white;
       border: none;
       cursor: pointer;
       font-weight: 700;
-      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     button:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
+      background: var(--vurpix-button-hover);
     }
 
     .note {
@@ -298,11 +292,6 @@
 
       .hero h1 {
         font-size: 31px;
-      }
-
-      .hero-cta a {
-        width: 100%;
-        max-width: 280px;
       }
     }
   </style>
@@ -413,7 +402,6 @@
           <textarea name="comentarios" placeholder="Comentarios, expectativas o restricciones alimentarias"></textarea>
 
           <input type="hidden" name="_subject" value="Nueva solicitud de invitación - AI Leadership Lunch">
-          <input type="hidden" name="_next" value="https://vurpixcl.github.io/aialmuerzo/">
 
           <button type="submit">Solicitar invitación</button>
         </form>
