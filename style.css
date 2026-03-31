@@ -2,3 +2,14 @@ body {
   background: #eaf2fb;
   font-family: Arial, sans-serif;
 }
+
+/* 👇 AGREGA ESTO */
+.brand {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+}
