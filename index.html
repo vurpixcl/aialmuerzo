@@ -125,8 +125,34 @@
       color: var(--vurpix-3);
       border: 1px solid rgba(20,100,156,.12);
       border-radius: 999px;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      line-height: 1.2;
+      transition: all 0.2s ease;
+    }
+
+    .btn-check:checked + .btn-outline-it {
+      background: linear-gradient(135deg, var(--vurpix-1), var(--vurpix-2));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 8px 18px rgba(228, 68, 100, 0.22);
+    }
+
+    .btn-outline-it:hover {
+      background: #f0f8fc;
+      color: var(--vurpix-3);
+    }
+
+    .btn-check:checked + .btn-outline-it {
+      background: linear-gradient(135deg, var(--vurpix-1), var(--vurpix-2));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 10px 22px rgba(228, 68, 100, 0.25);
+    }
+
+    .btn-outline-it:hover {
+      background: #f0f8fc;
+      color: var(--vurpix-3);
     }
 
     .btn-outline-it:hover {
@@ -345,20 +371,35 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6 mb-2">
+                  <div class="col-12 mb-2">
                     <input name="company" type="text" class="form-control" placeholder="Empresa" required>
                   </div>
 
-                  <div class="col-md-6 mb-2">
-                    <input name="role" type="text" class="form-control" placeholder="Cargo" required>
+                  <div class="col-12 mb-2">
+                    <input name="phone" type="tel" class="form-control" placeholder="Teléfono móvil (ej: +56 9 1234 5678)">
                   </div>
 
                   <div class="col-12 mb-2">
-                    <input name="phone" type="tel" class="form-control" placeholder="Teléfono móvil">
-                  </div>
+                    <label class="form-label fw-semibold mb-2">Selecciona uno o más temas de interés</label>
+<div class="d-flex flex-wrap gap-2">
+  <input type="checkbox" class="btn-check" name="interest[]" id="opt1" value="crm_ai" autocomplete="off">
+  <label class="btn btn-outline-it" for="opt1">De CRM a IA</label>
 
-                  <div class="col-12 mb-2">
-                    <textarea name="interest" class="form-control" placeholder="¿Qué tema te interesa más? CRM to AI, Data Foundation, Agentforce, AI Operating Model o Leadership."></textarea>
+  <input type="checkbox" class="btn-check" name="interest[]" id="opt2" value="data_foundation" autocomplete="off">
+  <label class="btn btn-outline-it" for="opt2">Data Foundation</label>
+
+  <input type="checkbox" class="btn-check" name="interest[]" id="opt3" value="agentforce" autocomplete="off">
+  <label class="btn btn-outline-it" for="opt3">Agentforce</label>
+
+  <input type="checkbox" class="btn-check" name="interest[]" id="opt4" value="ai_operating_model" autocomplete="off">
+  <label class="btn btn-outline-it" for="opt4">AI Operating Model</label>
+
+  <input type="checkbox" class="btn-check" name="interest[]" id="opt5" value="leadership" autocomplete="off">
+  <label class="btn btn-outline-it" for="opt5">Leadership</label>
+
+  <input type="checkbox" class="btn-check" name="interest[]" id="opt6" value="explorando_todo" autocomplete="off">
+  <label class="btn btn-outline-it" for="opt6">Estoy explorando todo</label>
+</div>
                   </div>
                 </div>
 
@@ -592,7 +633,28 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">  
+    // UX: seleccionar "Estoy explorando todo" desactiva otros
+    const allOption = document.getElementById('opt6');
+    const otherOptions = document.querySelectorAll('input[name="interest[]"]:not(#opt6)');
+
+    allOption.addEventListener('change', function() {
+      if (this.checked) {
+        otherOptions.forEach(opt => {
+          opt.checked = false;
+        });
+      }
+    });
+
+    otherOptions.forEach(opt => {
+      opt.addEventListener('change', function() {
+        if (this.checked) {
+          allOption.checked = false;
+        }
+      });
+    });
+
+  </script>
   <script>
     const eventDate = new Date("Apr 23, 2026 13:00:00").getTime();
 
@@ -663,3 +725,4 @@
   </script>
 </body>
 </html>
+
