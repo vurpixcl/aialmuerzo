@@ -2,219 +2,386 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gracias | AI Leadership Lunch</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gracias | Almuerzo de Liderazgo en IA</title>
   <style>
     :root {
-      --bg: #f4f7fb;
-      --card: #ffffff;
-      --text: #1f4f82;
-      --text-soft: #6f8098;
-      --vurpix-blue: #1f6ba8;
-      --vurpix-cyan: #1aa7d8;
+      --bg-1: #edf4fb;
+      --bg-2: #f7faff;
+
+      --primary: #14649c;
+      --secondary: #1ca3db;
+      --accent: #e44464;
+      --cyan-1: #1484bc;
+      --cyan-2: #1498c0;
+      --cyan-3: #1488c0;
+      --neutral: #4c7480;
+
+      --card: rgba(255, 255, 255, 0.92);
+      --card-strong: #ffffff;
+      --text: #14649c;
+      --text-soft: #4c7480;
+      --text-muted: #7f97a3;
+
       --line: #dbe6f2;
+      --shadow: 0 18px 50px rgba(20, 100, 156, 0.15);
+
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1180px;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #eaf2fb, #f4f7fb);
       color: var(--text);
-    }
-
-    .container {
-      display: flex;
+      background:
+        radial-gradient(circle at top left, rgba(26, 167, 216, 0.10), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(31, 107, 168, 0.10), transparent 32%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
       min-height: 100vh;
     }
 
-    /* LEFT */
-    .left {
-      flex: 1;
-      padding: 80px 60px;
+    .shell {
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      padding: 32px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      display: grid;
+      grid-template-columns: 1.15fr 420px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(219, 230, 242, 0.7);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .left {
+      padding: 72px 64px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.82));
     }
 
     .logo img {
       height: 42px;
-      margin-bottom: 40px;
+      width: auto;
+      display: block;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(28, 163, 219, 0.12);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
+      font-size: 48px;
+      line-height: 1.05;
+      margin: 0 0 20px;
+      max-width: 620px;
+      letter-spacing: -0.03em;
     }
 
     .lead {
       font-size: 18px;
+      line-height: 1.7;
       color: var(--text-soft);
-      line-height: 1.6;
-      max-width: 480px;
+      margin: 0 0 18px;
+      max-width: 560px;
     }
 
     .lead strong {
       color: var(--text);
     }
 
-    /* RIGHT PANEL */
+    .summary {
+      margin-top: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(28,163,219,0.15), rgba(20,132,188,0.12));
+      border: 1px solid rgba(20, 100, 156, 0.15);
+      color: var(--primary);
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(20, 100, 156, 0.08);
+    }
+
     .right {
-      width: 420px;
-      background: var(--card);
+      padding: 42px 34px;
+      background: var(--card-strong);
       border-left: 1px solid var(--line);
-      padding: 60px 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 24px 24px;
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+      box-shadow: 0 12px 30px rgba(31, 79, 130, 0.06);
+    }
+
     .panel-title {
-      font-size: 13px;
-      letter-spacing: 0.1em;
+      font-size: 12px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--vurpix-blue);
+      color: var(--primary);
       margin-bottom: 20px;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     .item {
-      margin-bottom: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid #edf3f9;
+    }
+
+    .item:last-of-type {
+      border-bottom: none;
+      padding-bottom: 6px;
     }
 
     .label {
-      font-size: 12px;
-      color: var(--text-soft);
+      font-size: 11px;
+      color: var(--text-muted);
       text-transform: uppercase;
-      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      font-weight: 700;
     }
 
     .value {
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 17px;
+      line-height: 1.45;
+      font-weight: 700;
+      color: var(--text);
     }
 
-    .note {
-      margin-top: 20px;
-      padding: 14px;
-      background: #eef6ff;
-      border-radius: 10px;
+    .location-wrap {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(28,163,219,0.12), rgba(20,132,188,0.12));
+      border: 1px solid #d9eafb;
+    }
+
+    .parking {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .parking-text {
       font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.5;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .mini-btn,
+    .btn {
+      margin-top: 22px;
+      display: block;
+      text-align: center;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: #e44464;
+      color: #ffffff;
+      font-size: 15px;
+      box-shadow: 0 14px 28px rgba(228, 68, 100, 0.28);
+    }
+
+    .mini-btn:hover,
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .mini-btn {
+      white-space: nowrap;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ffffff, rgba(28,163,219,0.08));
+      color: var(--primary);
+      border: 1px solid rgba(20, 100, 156, 0.18);
+      font-size: 13px;
+      box-shadow: 0 8px 18px rgba(20, 100, 156, 0.12);
     }
 
     .btn {
-      margin-top: 30px;
+      margin-top: 22px;
       display: block;
       text-align: center;
-      padding: 16px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--vurpix-blue), var(--vurpix-cyan));
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #ffffff;
       font-size: 15px;
+      box-shadow: 0 14px 28px rgba(20, 100, 156, 0.28);
+    }
+
+    .subnote {
+      margin-top: 14px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      text-align: center;
     }
 
     .footer {
-      margin-top: 30px;
+      margin-top: 22px;
       font-size: 12px;
       color: #9aa8b6;
       text-align: center;
     }
 
     .footer a {
-      color: var(--vurpix-blue);
+      color: var(--primary);
       text-decoration: none;
     }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .container {
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
 
       .right {
-        width: 100%;
         border-left: none;
         border-top: 1px solid var(--line);
       }
+    }
 
-      .left {
-        padding: 50px 24px;
+    @media (max-width: 720px) {
+      .shell {
+        padding: 16px;
       }
 
+      .left,
       .right {
-        padding: 40px 24px;
+        padding: 34px 22px;
       }
 
       h1 {
-        font-size: 30px;
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .logo img {
+        height: 36px;
       }
     }
   </style>
 </head>
-
 <body>
+  <div class="shell">
+    <div class="container">
+      <section class="left">
+        <div class="logo">
+          <img src="assets/logo-vurpix.png" alt="Vurpix" />
+        </div>
 
-  <div class="container">
+        <div class="eyebrow">Solicitud recibida</div>
 
-    <!-- LEFT -->
-    <div class="left">
-      <div class="logo">
-        <img src="assets/logo-vurpix.png" alt="Vurpix">
-      </div>
+        <h1>Gracias por solicitar tu invitación</h1>
 
-      <h1>Gracias por solicitar tu invitación</h1>
+        <p class="lead">
+          Hemos recibido tu solicitud para participar en el
+          <strong>Almuerzo de Liderazgo en IA</strong>.
+        </p>
 
-      <p class="lead">
-        Hemos recibido tu solicitud para participar en el
-        <strong>AI Leadership Lunch</strong>.
-      </p>
+        <p class="lead">
+          Nuestro equipo revisará tu registro y te contactará pronto para confirmar tu participación y compartir los detalles finales del encuentro.
+        </p>
 
-      <p class="lead">
-        Te contactaremos para confirmar tu participación y compartir los detalles finales de esta experiencia privada.
-      </p>
+        <div class="summary">
+          Reserva la fecha y guarda esta información para tenerla a mano.
+        </div>
+      </section>
+
+      <aside class="right">
+        <div class="panel">
+          <div class="panel-title">Detalles del encuentro</div>
+
+          <div class="item">
+            <div class="label">Fecha</div>
+            <div class="value">Jueves 23 de abril de 2026</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Horario</div>
+            <div class="value">13:00 a 15:30 hrs.</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Lugar</div>
+            <div class="value">Restaurante Panchita</div>
+          </div>
+
+          <div class="location-wrap">
+            <div class="label">Comodidad</div>
+            <div class="parking">
+              <div class="parking-text">
+                Contaremos con <strong>valet parking</strong> para una llegada más cómoda.
+              </div>
+              <a
+                class="mini-btn"
+                href="https://www.google.com/maps/search/?api=1&query=Restaurante+Panchita+Santiago"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver ubicación en Maps
+              </a>
+            </div>
+          </div>
+
+          <a
+            class="btn"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Almuerzo%20de%20Liderazgo%20en%20IA%20-%20Vurpix&dates=20260423T170000Z/20260423T193000Z&details=Encuentro%20ejecutivo%20privado%20organizado%20por%20Vurpix.&location=Restaurante%20Panchita%2C%20Santiago"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Guardar en mi calendario
+          </a>
+
+          <div class="subnote">
+            Te recomendamos agendarlo ahora para no perder el encuentro.
+          </div>
+        </div>
+
+        <div class="footer">
+          © 2026 Vurpix · <a href="https://www.vurpix.com" target="_blank" rel="noopener noreferrer">www.vurpix.com</a>
+        </div>
+      </aside>
     </div>
-
-    <!-- RIGHT -->
-    <div class="right">
-
-      <div class="panel-title">Detalles del encuentro</div>
-
-      <div class="item">
-        <div class="label">Fecha</div>
-        <div class="value">Jueves 23 de abril de 2026</div>
-      </div>
-
-      <div class="item">
-        <div class="label">Horario</div>
-        <div class="value">13:00 a 15:30 hrs.</div>
-      </div>
-
-      <div class="item">
-        <div class="label">Lugar</div>
-        <div class="value">Restaurante Panchita</div>
-      </div>
-
-      <div class="note">
-        Contaremos con <strong>valet parking</strong> para mayor comodidad.
-      </div>
-
-      <a
-        class="btn"
-        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AI%20Leadership%20Lunch%20-%20Vurpix&dates=20260423T170000Z/20260423T193000Z&details=Encuentro%20ejecutivo%20privado%20organizado%20por%20Vurpix.&location=Restaurante%20Panchita"
-        target="_blank"
-      >
-        Guardar en mi calendario
-      </a>
-
-      <div class="footer">
-        © 2026 Vurpix · <a href="https://www.vurpix.com">www.vurpix.com</a>
-      </div>
-
-    </div>
-
   </div>
-
 </body>
 </html>
