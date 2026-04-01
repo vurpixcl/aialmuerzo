@@ -2,85 +2,154 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gracias | AI Leadership Lunch</title>
 
   <style>
     :root {
-      --bg: #f5f7fa;
+      --bg: #f4f7fb;
       --card: #ffffff;
       --text: #1f4f82;
       --text-soft: #6f8098;
       --vurpix-blue: #1f6ba8;
       --vurpix-cyan: #1aa7d8;
-      --shadow: 0 10px 30px rgba(31, 79, 130, 0.10);
-      --radius: 20px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+      --line: #dbe6f2;
     }
 
     body {
-      background: linear-gradient(135deg, #eaf2fb, #f5f7fa);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #eaf2fb, #f4f7fb);
       color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding: 20px;
     }
 
     .container {
-      background: var(--card);
-      padding: 40px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      max-width: 520px;
-      width: 100%;
-      text-align: center;
+      display: flex;
+      min-height: 100vh;
     }
 
-    .logo {
-      margin-bottom: 20px;
+    /* LEFT */
+    .left {
+      flex: 1;
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .logo img {
-      height: 40px;
+      height: 42px;
+      margin-bottom: 40px;
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 16px;
+      font-size: 40px;
+      margin-bottom: 20px;
     }
 
-    p {
-      font-size: 16px;
+    .lead {
+      font-size: 18px;
       color: var(--text-soft);
-      margin-bottom: 12px;
-      line-height: 1.5;
+      line-height: 1.6;
+      max-width: 480px;
     }
 
-    .highlight {
+    .lead strong {
+      color: var(--text);
+    }
+
+    /* RIGHT PANEL */
+    .right {
+      width: 420px;
+      background: var(--card);
+      border-left: 1px solid var(--line);
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .panel-title {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--vurpix-blue);
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .item {
+      margin-bottom: 18px;
+    }
+
+    .label {
+      font-size: 12px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .note {
       margin-top: 20px;
+      padding: 14px;
+      background: #eef6ff;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      display: block;
+      text-align: center;
       padding: 16px;
-      background: #f0f6ff;
       border-radius: 12px;
+      background: linear-gradient(135deg, var(--vurpix-blue), var(--vurpix-cyan));
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
       font-size: 15px;
     }
 
     .footer {
       margin-top: 30px;
-      font-size: 13px;
+      font-size: 12px;
       color: #9aa8b6;
+      text-align: center;
     }
 
     .footer a {
       color: var(--vurpix-blue);
       text-decoration: none;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .right {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .left {
+        padding: 50px 24px;
+      }
+
+      .right {
+        padding: 40px 24px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
     }
   </style>
 </head>
@@ -89,26 +158,60 @@
 
   <div class="container">
 
-    <div class="logo">
-      <img src="assets/logo-vurpix.png" alt="Vurpix">
+    <!-- LEFT -->
+    <div class="left">
+      <div class="logo">
+        <img src="assets/logo-vurpix.png" alt="Vurpix">
+      </div>
+
+      <h1>Gracias por solicitar tu invitación</h1>
+
+      <p class="lead">
+        Hemos recibido tu solicitud para participar en el
+        <strong>AI Leadership Lunch</strong>.
+      </p>
+
+      <p class="lead">
+        Te contactaremos para confirmar tu participación y compartir los detalles finales de esta experiencia privada.
+      </p>
     </div>
 
-    <h1>Gracias por tu solicitud</h1>
+    <!-- RIGHT -->
+    <div class="right">
 
-    <p>
-      Hemos recibido tu registro para el <strong>AI Leadership Lunch</strong>.
-    </p>
+      <div class="panel-title">Detalles del encuentro</div>
 
-    <p>
-      Te contactaremos por WhatsApp para confirmar tu asistencia.
-    </p>
+      <div class="item">
+        <div class="label">Fecha</div>
+        <div class="value">Jueves 23 de abril de 2026</div>
+      </div>
 
-    <div class="highlight">
-      Recuerda el lugar del evento y que contará con <strong>valet parking disponible</strong>.
-    </div>
+      <div class="item">
+        <div class="label">Horario</div>
+        <div class="value">13:00 a 15:30 hrs.</div>
+      </div>
 
-    <div class="footer">
-      © 2026 Vurpix · <a href="https://www.vurpix.com" target="_blank">www.vurpix.com</a>
+      <div class="item">
+        <div class="label">Lugar</div>
+        <div class="value">Restaurante Panchita</div>
+      </div>
+
+      <div class="note">
+        Contaremos con <strong>valet parking</strong> para mayor comodidad.
+      </div>
+
+      <a
+        class="btn"
+        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AI%20Leadership%20Lunch%20-%20Vurpix&dates=20260423T170000Z/20260423T193000Z&details=Encuentro%20ejecutivo%20privado%20organizado%20por%20Vurpix.&location=Restaurante%20Panchita"
+        target="_blank"
+      >
+        Guardar en mi calendario
+      </a>
+
+      <div class="footer">
+        © 2026 Vurpix · <a href="https://www.vurpix.com">www.vurpix.com</a>
+      </div>
+
     </div>
 
   </div>
